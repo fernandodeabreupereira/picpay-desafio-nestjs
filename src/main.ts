@@ -1,9 +1,9 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { Request, Response } from 'express';
 import { AppModule } from './app.module';
 import { PORT } from './config/app';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { Request, Response } from 'express';
+import { configureSwagger } from './config/swagger';
 
 async function bootstrap () {
   const app = await NestFactory.create(AppModule);
@@ -17,19 +17,7 @@ async function bootstrap () {
     }),
   );
 
-  const config = new DocumentBuilder()
-    .setTitle('API do desafio PicPay')
-    .setDescription(
-      'API desenvolvida para o desafio técnico da empresa PicPay',
-    )
-    .setVersion('1.0')
-    .addTag('autenticação')
-    .addTag('transferência')
-    .addBearerAuth()
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-
-  SwaggerModule.setup('documentation', app, document);
+  configureSwagger(app);
 
   const server = app.getHttpAdapter();
 
