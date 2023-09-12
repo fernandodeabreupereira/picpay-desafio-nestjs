@@ -3,13 +3,13 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CreateUserService } from './create-user.service';
 import * as supertest from 'supertest';
 import * as bcrypt from 'bcrypt';
-import { cpfExceptionMessage } from '../../../exceptions/user/user-exists-by-cpf.exception';
-import { emailExceptionMessage } from '../../../exceptions/user/user-exists-by-email.exception';
-import { IReturnUser } from '../../../interfaces/return-user';
-import { IUser } from '../../../models/user';
-import { UserRepository } from '../../../repositories/abstracts/user.repository';
+import { cpfExceptionMessage } from '../../../../exceptions/user/user-exists-by-cpf.exception';
+import { emailExceptionMessage } from '../../../../exceptions/user/user-exists-by-email.exception';
+import { IReturnUser } from '../../../../interfaces/return-user';
+import { IUser } from '../../../../models/user';
+import { UserRepository } from '../../../../repositories/abstracts/user.repository';
 import { CreateUserDTO } from './dtos/create-user.dto';
-import { TestDependenciesModule } from '../../../modules/test/test-dependencies.module';
+import { TestDependenciesModule } from '../../../../modules/test/test-dependencies.module';
 
 describe('CreateUserController', () => {
   let app: INestApplication;

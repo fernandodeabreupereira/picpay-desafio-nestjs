@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import * as bcrypt from 'bcrypt';
-import { UserExistsByCpfException } from '../../../exceptions/user/user-exists-by-cpf.exception';
-import { UserExistsByEmailException } from '../../../exceptions/user/user-exists-by-email.exception';
+import { UserExistsByCpfException } from '../../../../exceptions/user/user-exists-by-cpf.exception';
+import { UserExistsByEmailException } from '../../../../exceptions/user/user-exists-by-email.exception';
 import { IReturnUser } from 'src/interfaces/return-user';
 import { IUser } from 'src/models/user';
-import { UserRepository } from '../../../repositories/abstracts/user.repository';
+import { UserRepository } from '../../../../repositories/abstracts/user.repository';
 import { CreateUserService } from './create-user.service';
 
 describe('CreateUserService', () => {

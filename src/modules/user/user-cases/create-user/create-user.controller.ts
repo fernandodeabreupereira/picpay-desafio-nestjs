@@ -4,8 +4,8 @@ import {
   ApiCreatedResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { IController, returnHandle } from '../../../interfaces/controller';
-import { RouteIsPublic } from '../../../validators/route-is-public.decorator';
+import { IController, returnHandle } from '../../../../interfaces/controller';
+import { RouteIsPublic } from '../../../../validators/route-is-public.decorator';
 import { CreateUserService } from './create-user.service';
 import { CreateUserDTO } from './dtos/create-user.dto';
 
