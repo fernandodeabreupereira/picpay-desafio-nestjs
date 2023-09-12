@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { CreateUserController } from './user-cases/create-user/create-user.controller';
-import { CreateUserService } from './user-cases/create-user/create-user.service';
+import { CreateUserController } from './use-cases/create-user/create-user.controller';
+import { CreateUserService } from './use-cases/create-user/create-user.service';
 
 @Module({
     imports: [
