@@ -103,9 +103,7 @@ describe('CreateUserService', () => {
     );
 
     expect(createUserService.execute).toHaveBeenCalledWith(userData);
-    expect(userRepository.findByCPF).toHaveBeenCalledWith(
-      cpfWithoutPunctuation,
-    );
+    expect(userRepository.findByCPF).toHaveBeenCalledWith(cpfWithoutPunctuation);
     expect(userRepository.findByEmail).toHaveBeenCalledWith(userData.email);
     expect(userRepository.create).toHaveBeenCalledWith({
       ...createData,
