@@ -1,12 +1,16 @@
-/*
-https://docs.nestjs.com/modules
-*/
-
 import { Module } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-    imports: [],
+    imports: [
+        JwtModule.registerAsync({
+            useFactory: async () => ({
+                secret: process.env.JWT_SECRET,
+                signOptions: { expiresIn: process.env.JWT_EXPIRATION },
+            }),
+        }),
+    ],
     controllers: [],
     providers: [],
 })
-export class UserModule {}
+export class UserModule { }
