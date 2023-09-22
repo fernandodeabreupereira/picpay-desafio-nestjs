@@ -18,7 +18,7 @@ describe('TransferAuthorizerService', () => {
     const response = await transferAuthorizerService.execute();
 
     expect(axios.get).toHaveBeenCalledWith(
-      'https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6',
+      'https://run.mocky.io/v3/385d15f0-29a8-474e-a575-a776fdd2e400',
     );
 
     expect(typeof response).toBe('string');

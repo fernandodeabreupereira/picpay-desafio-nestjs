@@ -17,7 +17,7 @@ describe('SendNotifyService', () => {
   it('should return a message from the notify API', async () => {
     const response = await sendNotifyService.execute();
 
-    expect(axios).toHaveBeenCalledWith('http://o4d9z.mocklab.io/notify');
+    expect(axios.get).toHaveBeenCalledWith('https://run.mocky.io/v3/5f4d543f-219f-43c8-8d2f-de90ff6d769c');
     expect(typeof response).toBe('string');
   }, 30000);
 });

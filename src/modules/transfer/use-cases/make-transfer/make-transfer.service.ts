@@ -7,7 +7,7 @@ import { UnauthorizedRoleTransferException } from '../../../../exceptions/transf
 import { InvalidUserByIdException } from '../../../../exceptions/user/user-exists-by-id.exception';
 import { IService } from '../../../../interfaces/service';
 import { ITransfer } from '../../../../models/transfer';
-import { SendNotifyService, exceededMonthlyRequestQuotaErrorMessage } from '../../../../providers/send-notify/send-notify.service';
+import { SendNotifyService } from '../../../../providers/send-notify/send-notify.service';
 import { TransferAuthorizerService } from '../../../../providers/transfer-authorizer/transfer-authorizer.service';
 import { NotifyRepository } from '../../../../repositories/abstracts/notify.repository';
 import { TransferRepository } from '../../../../repositories/abstracts/transfer.repository';
@@ -76,7 +76,7 @@ export class MakeTransferService implements IService {
 
       const notificationSent = await this._sendNotifyService.execute();
 
-      if (notificationSent !== 'Success' && notificationSent !== exceededMonthlyRequestQuotaErrorMessage) {
+      if (notificationSent !== 'Success') {
         throw new Error();
       }
     } catch (error) {
