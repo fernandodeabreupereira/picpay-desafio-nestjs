@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("PRISMA_URL")
+}
+
+enum Role {
+    user
+    seller
+}
+
+model User {
+    id            String   @id @default(uuid())
+    role          Role
+    full_name     String
+    cpf           String   @unique
+    email         String   @unique
+    password      String
+    balance       Float
+    notifications Notify[]
+    created_at    DateTime @default(now())
+    updated_at    DateTime @updatedAt
+
+    @@map("users")
+}
+
+model Notify {
+    id              String   @id @default(uuid())
+    payer_name      String
+    payer_cpf       String
+    transfer_amount Float
+    transfer_time   DateTime
+    created_at      DateTime @default(now())
+    updated_at      DateTime @updatedAt
+    User            User     @relation(fields: [to_user_id], references: [id])
+    to_user_id      String
+
+    @@map("notifications")
+}
