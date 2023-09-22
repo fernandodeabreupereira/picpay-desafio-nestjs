@@ -9,7 +9,7 @@ import { LoggedInUserService } from './logged-in-user.service';
 export class LoggedInUserController implements IController {
   constructor (private readonly _loggedInUserService: LoggedInUserService) { }
 
-  @ApiTags('auth-user')
+  @ApiTags('autenticacao')
   @ApiBearerAuth()
   @ApiUnauthorizedResponse()
   @ApiBadRequestResponse()

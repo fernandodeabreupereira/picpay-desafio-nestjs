@@ -13,7 +13,7 @@ import { CreateUserDTO } from './dtos/create-user.dto';
 export class CreateUserController implements IController {
   constructor (private readonly _createUserService: CreateUserService) { }
 
-  @ApiTags('auth-user')
+  @ApiTags('autenticacao')
   @ApiBadRequestResponse()
   @ApiCreatedResponse()
   @RouteIsPublic()

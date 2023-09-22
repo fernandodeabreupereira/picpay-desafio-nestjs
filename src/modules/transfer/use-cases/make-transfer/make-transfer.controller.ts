@@ -18,7 +18,7 @@ import { MakeTransferDTO } from './dtos/make-transfer.dto';
 export class MakeTransferController implements IController {
   constructor (private readonly _makeTransferService: MakeTransferService) { }
 
-  @ApiTags('transfer')
+  @ApiTags('transferencia')
   @ApiBearerAuth()
   @ApiUnauthorizedResponse()
   @ApiBadRequestResponse()

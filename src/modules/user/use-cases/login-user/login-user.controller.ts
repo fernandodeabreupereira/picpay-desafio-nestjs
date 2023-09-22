@@ -17,7 +17,7 @@ import { LoginUserService } from './login-user.service';
 export class LoginUserController implements IController {
   constructor (private readonly _loginUserService: LoginUserService) { }
 
-  @ApiTags('auth-user')
+  @ApiTags('autenticacao')
   @ApiBody({ type: LoginRequestBody })
   @ApiUnauthorizedResponse()
   @ApiOkResponse()
