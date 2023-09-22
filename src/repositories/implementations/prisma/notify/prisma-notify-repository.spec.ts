@@ -13,10 +13,10 @@ describe('PrismaNotifyRepository', () => {
 
   const userData: IUser = {
     role: 'user',
-    full_name: 'user',
-    cpf: '6708601711081583687004',
-    email: 'test@gmail.com',
-    password: 'test',
+    full_name: 'test_notify',
+    cpf: '67583687004',
+    email: 'testnotify@gmail.com',
+    password: 'testnotify123',
     balance: 0,
   };
 
@@ -47,7 +47,6 @@ describe('PrismaNotifyRepository', () => {
 
   afterAll(async () => {
     await prismaService.notify.deleteMany();
-
     await prismaService.user.deleteMany();
     await prismaService.$disconnect();
   });
@@ -62,8 +61,8 @@ describe('PrismaNotifyRepository', () => {
     const createdUser = await prismaUserRepository.create(userData);
 
     const notifyData: INotify = {
-      payer_name: 'payer',
-      payer_cpf: '12916957022',
+      payer_name: 'test_payer',
+      payer_cpf: '59563681010',
       transfer_amount: 140.25,
       transfer_time: new Date(),
       to_user_id: createdUser.id,

@@ -17,19 +17,19 @@ describe('PrismaTransferRepository', () => {
 
   const payerUserData: IUser = {
     role: 'user',
-    full_name: 'payer',
-    cpf: '08601711081',
-    email: 'payer@gmail.com',
-    password: 'payer',
+    full_name: 'payer_user',
+    cpf: '97639801001',
+    email: 'payeruser@gmail.com',
+    password: 'payeruser123',
     balance: 210.5,
   };
 
   const receiverUserData: IUser = {
     role: 'seller',
-    full_name: 'receiver',
-    cpf: '12916957022',
-    email: 'receiver@gmail.com',
-    password: 'receiver',
+    full_name: 'receiver_user',
+    cpf: '68845877094',
+    email: 'receiveruser@gmail.com',
+    password: 'receiveruser123',
     balance: 0,
   };
 
@@ -61,7 +61,6 @@ describe('PrismaTransferRepository', () => {
 
   afterAll(async () => {
     await prismaService.notify.deleteMany();
-
     await prismaService.user.deleteMany();
     await prismaService.$disconnect();
   });

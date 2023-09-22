@@ -1,8 +1,8 @@
 import { Test } from '@nestjs/testing';
 import { PrismaService } from '../prisma-client.service';
 import { IUser } from '../../../../models/user';
-import { PrismaUserRepository } from './prisma-user-repository';
 import { prismaServiceTest } from '../test/prisma-service-test';
+import { PrismaUserRepository } from './prisma-user-repository';
 
 describe('PrismaUserRepository', () => {
   let prismaService: PrismaService;
@@ -13,9 +13,9 @@ describe('PrismaUserRepository', () => {
   const userData: IUser = {
     role: 'user',
     full_name: 'test_user',
-    cpf: '08601711081',
-    email: 'test@gmail.com',
-    password: 'test',
+    cpf: '29364210042',
+    email: 'testuser@gmail.com',
+    password: 'testuser123',
     balance: 0,
   };
 
@@ -42,9 +42,7 @@ describe('PrismaUserRepository', () => {
   });
 
   afterAll(async () => {
-    // Como o notify é associado ao user, tem que limpar primeiro, se não dá erro
     await prismaService.notify.deleteMany();
-
     await prismaService.user.deleteMany();
     await prismaService.$disconnect();
   });
