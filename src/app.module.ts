@@ -6,6 +6,8 @@ import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 import { LoginValidationBodyModule } from './modules/login-validation-body/login-validation-body.module';
 import { TransferModule } from './modules/transfer/transfer.module';
 import { UserModule } from './modules/user/user.module';
+import { TransferAuthorizerService } from './providers/transfer-authorizer/transfer-authorizer.service';
+import { PrismaDatabaseModule } from './repositories/implementations/prisma/prisma-database.module';
 
 @Module({
   imports: [
@@ -17,13 +19,14 @@ import { UserModule } from './modules/user/user.module';
     AuthModule,
     LoginValidationBodyModule,
     TransferModule,
+    PrismaDatabaseModule,
   ],
   providers: [
     {
-      // Ativa o JwtAuthGuard globalmente para toda a aplicação, mas desativa-o para uma rota específica usando o Decorador Personalizado @RouteIsPublic() no Controller.
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
     },
+    TransferAuthorizerService
   ],
 })
 export class AppModule { }
